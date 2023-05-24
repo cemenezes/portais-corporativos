@@ -1,0 +1,39 @@
+version: '3.3'
+services:
+   portal:
+     depends_on:
+       - db_portal
+     image: sead/portais:1.0
+     container_name: portalmodelo-wordpress
+     volumes:
+       - /srv/modelo.ac.gov.br/wordpress_files:/var/www/html                      # EDITAR /modelo.ac.gov.br/
+       - /srv/modelo.ac.gov.br/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini  # EDITAR /modelo.ac.gov.br/
+     ports:
+       - "8080:80"         # EDITAR 8080 adicionando a próxima disponível
+     restart: always
+     environment:
+       WORDPRESS_DB_HOST: db_portal:3306
+       WORDPRESS_DB_USER: wordpress
+       WORDPRESS_DB_PASSWORD: portal
+       WORDPRESS_CONFIG_EXTRA: |
+        define('WP_HOME', 'http://10.1.5.126:8080');
+        define('WP_SITEURL', 'http://10.1.5.126:8080');
+
+   db_portal:
+     image: mysql:5.7
+     container_name: portalmodelo-db
+     volumes:
+       - /srv/modelo.ac.gov.br/db_data:/var/lib/mysql           # EDITAR /modelo.ac.gov.br/
+       - /opt/build/dump:/docker-entrypoint-initdb.d
+     ports:
+       - "3380:3306"       # EDITAR 3380 adicionando a próxima disponível
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: portal
+       MYSQL_DATABASE: wordpress
+       MYSQL_USER: wordpress
+       MYSQL_PASSWORD: portal
+       UPLOAD_LIMIT: 512M
+volumes:
+    wordpress_files:
+    db_data:
