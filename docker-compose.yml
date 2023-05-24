@@ -16,7 +16,7 @@ services:
        WORDPRESS_DB_USER: wordpress
        WORDPRESS_DB_PASSWORD: portal
        WORDPRESS_CONFIG_EXTRA:
-        define( 'WP_HOME', 'http://10.1.5.126:8081' );  # ALTERAR de acordo com o endereço do site
+        define( 'WP_HOME', 'http://10.1.5.126:8081' );
         define( 'WP_SITEURL', 'http://10.1.5.126:8081' ); # ALTERAR de acordo com o endereço do site
        
    db_portal:
