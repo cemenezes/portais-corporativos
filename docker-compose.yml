@@ -3,7 +3,7 @@ services:
    portal:
      depends_on:
        - db_portal
-     image: sead/portais:1.1
+     image: sead/portais:1.2
      container_name: portalmodelo-wordpress
      volumes:
        - /srv/modelo.ac.gov.br/wordpress_files:/var/www/html                      # EDITAR /modelo.ac.gov.br/
