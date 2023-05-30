@@ -3,7 +3,7 @@ services:
    portal:
      depends_on:
        - db_portal
-     image: sead/portais:1.2
+     image: registry.ac.gov.br/sead/portais:latest
      container_name: ${NOME_ORGAO}-wp
      volumes:
        - /srv/${NOME_PORTAL}.ac.gov.br/wordpress_files:/var/www/html                      
