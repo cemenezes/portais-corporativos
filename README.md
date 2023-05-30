@@ -11,6 +11,12 @@ Este é o projeto de Portais Corporativos em docker que possibilita a publicaç�
 
 ## Instruções
 
+### Criar um novo portal
+
+Para criar um novo portal, siga as orientações da documentação abaixo:
+
++ [WIKI-SEAD](http://wiki-sead.ac.gov.br/books/portais-governamentais/page/levantar-um-portal) - Levantar um portal por linha de comando ou pelo Portainer
+
 ### Subindo o ambiente em um novo servidor 
 
 Caso necessário instalar um novo servidor, clonar o projeto no host destino:
@@ -33,5 +39,6 @@ Para subir um portal institucional, altere as variáveis do arquivo .env
 ```
 cd /opt/portais_corporativos/
 vi .env
+docker-compose up -d
 
 ```
