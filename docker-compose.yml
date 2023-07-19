@@ -7,7 +7,7 @@ services:
      container_name: ${NOME_ORGAO}-wp
      volumes:
        - /srv/${NOME_PORTAL}.ac.gov.br/wordpress_files:/var/www/html                      
-       - /srv/${NOME_PORTAL}.ac.gov.br/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+       - /srv/arquivos_parametros/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
      ports:
        - "${PORTA_APP}:80"
      restart: always
