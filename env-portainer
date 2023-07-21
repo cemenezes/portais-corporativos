@@ -1,0 +1,4 @@
+NOME_ORGAO = modelo
+NOME_PORTAL = modelo
+PORTA_APP = 8085
+PORTA_DB = 3095
