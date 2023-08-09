@@ -1,8 +1,6 @@
 version: '3.3'
 services:
    portal:
-     depends_on:
-       - db_portal
      image: registry.ac.gov.br/sead/portais:latest
      container_name: ${NOME_ORGAO}-wp
      volumes:
@@ -12,28 +10,12 @@ services:
        - "${PORTA_APP}:80"
      restart: always
      environment:
-       WORDPRESS_DB_HOST: db_portal:3306
+       WORDPRESS_DB_HOST: 10.1.6.91:3306
        WORDPRESS_DB_USER: wordpress
        WORDPRESS_DB_PASSWORD: Jg_d93Lm
+       WORDPRESS_DB_NAME: portal_${NOME_PORTAL}
        WORDPRESS_CONFIG_EXTRA: |
         define('WP_HOME', 'https://${NOME_PORTAL}.ac.gov.br');
         define('WP_SITEURL', 'https://${NOME_PORTAL}.ac.gov.br');
-
-   db_portal:
-     image: mysql:5.7
-     container_name: ${NOME_ORGAO}-db
-     volumes:
-       - /srv/${NOME_PORTAL}.ac.gov.br/db_data:/var/lib/mysql
-       - /opt/build/dump:/docker-entrypoint-initdb.d
-     ports:
-       - "${PORTA_DB}:3306"
-     restart: always
-     environment:
-       MYSQL_ROOT_PASSWORD: p7!eGm36
-       MYSQL_DATABASE: wordpress
-       MYSQL_USER: wordpress
-       MYSQL_PASSWORD: Jg_d93Lm
-       UPLOAD_LIMIT: 512M
 volumes:
     wordpress_files:
-    db_data:
