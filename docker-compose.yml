@@ -11,9 +11,9 @@ services:
        - "${PORTA_APP}:80"
      restart: always
      environment:
-       WORDPRESS_DB_HOST: 10.1.6.91:3306
-       WORDPRESS_DB_USER: wordpress
-       WORDPRESS_DB_PASSWORD: Jg_d93Lm
+       WORDPRESS_DB_HOST: ${DBHOST}
+       WORDPRESS_DB_USER: ${WPUSER}
+       WORDPRESS_DB_PASSWORD: ${DBPW}
        WORDPRESS_DB_NAME: portal_${NOME_PORTAL}
        WORDPRESS_CONFIG_EXTRA: |
         define('WP_HOME', 'https://${NOME_PORTAL}.ac.gov.br');
