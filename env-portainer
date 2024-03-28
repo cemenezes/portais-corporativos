@@ -1,3 +1,6 @@
-NOME_ORGAO = modelo
-NOME_PORTAL = modelo
-PORTA_APP = 8085
+${NOME_ORGAO} = modelo
+${NOME_PORTAL} = modelo
+${PORTA_APP} = 8085
+${DBHOST} = modelo
+${WPUSER} = wordpress
+${DBPW} = wordpress
